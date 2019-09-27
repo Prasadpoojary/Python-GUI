@@ -244,7 +244,6 @@ if __name__=="__main__":
         if c6.get()== "General":
             c7["value"]=("Konkani","Karaba","Bramhins")
         
-
         elif c6.get()== "OBC 2A":
             c7["value"]=("Bunts","Billava","Kulal","Eidiga")
         
@@ -312,26 +311,5 @@ if __name__=="__main__":
     ent9.bind("<Return>",fent16)
     ent10.bind("<Return>",fent17)
     ent11.bind("<Return>",fent18)
-    
-   
+     
 window.mainloop()
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
