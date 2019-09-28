@@ -1,14 +1,23 @@
+#You must have a 'college.xlsx' file in your 'C:\Users\User\Documents'. 
+#When You enter the fields and hit them submit button the date will store in 'college.xlsx' file. It acts as a Database.
+#to install modules 'pip install tkinter' and 'pip install openpyxl' execute on your CMD.
+
+#import all required modules
 from tkinter.ttk import*
 from openpyxl import *
 from tkinter import*
 from tkinter import filedialog
 from tkinter import messagebox
 
+#try to load the 'college.xlsc' file. if file not found FileNotFound error occurs and it will send you a warning.
+#exception handler used here.
 try:
    wb=load_workbook("C:\\Users\\User\\Documents\\college.xlsx")
    sheet=wb.active
 except FileNotFoundError:
    messagebox.showwarning("Warning","Please create a 'college.xlsx' file in 'C:/Users/User/Documents'")
+   
+# setup the width and height of rows and columns of Excel stylesheet 'college.xlsx' file.
 def settings():
     sheet.column_dimensions['A'].width=25
     sheet.column_dimensions['B'].width=12
@@ -46,7 +55,7 @@ def settings():
     sheet.cell(row=1,column=16).value="IFSC"
     sheet.cell(row=1,column=17).value="BRANCH"
     sheet.cell(row=1,column=18).value="ACCOUNT NUMER"
-
+# function will called when the the clear button hits. It will clear all the input fields.
 def clear():
     ent1.delete(0,END)
     ent2.delete(0,END)
@@ -75,7 +84,8 @@ def clear():
     c6.set("      select")
     c7.set("      select")
 
-
+# each of the functions are called when the even the events are occures. When you press Enter button first input field then the cursor
+# jumps to next input field.
 def fent1(event):
     c2.focus_set()
 def fent2(event):
@@ -114,7 +124,7 @@ def fent18(event):
     ent12.focus_set()
 
 
-  
+ # function will called when you hit the submit button 
 def insert():
     if  ent1.get()=="" or ent2.get()=="" or ent3.get()=="" or ent4.get()=="" or ent5.get()=="" or ent6.get()=="" or ent7.get()=="" or ent8.get()=="" or ent9.get()=="" or ent10.get()=="" or ent11.get()=="" or ent12.get()=="" or c1.get()=="      select" or c2.get()=="DD" or c3.get()=="Month" or c4.get()=="YYYY " or c5.get()=="      select" or c6.get()=="      select" or c7.get()=="      select":
         messagebox.showerror("Error","Please fill every details with valid informations, Do not leave blank Entries")
@@ -131,7 +141,7 @@ def insert():
 
         else:
                 gen="Male"
-
+# get all the values from input fields and stores it in 'college.xlsx' file
         sheet.cell(row=mrow+1,column=2).value=gen
         sheet.cell(row=mrow+1,column=3).value=str(c2.get())+" "+str(c3.get())+" "+str(c4.get())
         sheet.cell(row=mrow+1,column=4).value=ent8.get()
@@ -153,9 +163,12 @@ def insert():
         clear()
         ent1.focus_set()
 
+ # main function. Starting Point of Program execution.
 if __name__=="__main__":
     
+    #initialize the Tk to user defined variable window as object.
     window=Tk()
+    # user interface designs.
     window.geometry("1365x800+0+0")
     window.title("Student Information Form")
     window.configure(background="light grey")
@@ -293,6 +306,7 @@ if __name__=="__main__":
     btn5=Button(window,text="Clear",font="none 15 bold",width=7,command=clear)
     btn5.place(x=900,y=652)
 
+#Bind the Enter Button to all particular functions.      
     ent1.bind("<Return>",fent1)
     c2.bind("<Return>",fent2) 
     c3.bind("<Return>",fent3)
@@ -311,5 +325,5 @@ if __name__=="__main__":
     ent9.bind("<Return>",fent16)
     ent10.bind("<Return>",fent17)
     ent11.bind("<Return>",fent18)
-     
+# window objects end     
 window.mainloop()
