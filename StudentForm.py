@@ -325,5 +325,5 @@ if __name__=="__main__":
     ent9.bind("<Return>",fent16)
     ent10.bind("<Return>",fent17)
     ent11.bind("<Return>",fent18)
-# window objects end     
+# window object end     
 window.mainloop()
