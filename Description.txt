@@ -1,6 +1,0 @@
-This is the folder which containes all my GUI applications made by using PYTHON tkinter module.
-I hope that it will works better as I use and it will help you,
-1. QRcode Project: When you enter your URL in which you want to get the QRcode and then press the button a QRcode will Generate for       you. NOTE: You must have internet connection.
-2. StudentForm: You must have a 'college.xlsx' file in your 'C:\Users\User\Documents'. When You enter the fields and hit them submit button the date will store in 'college.xlsx' file. It acts as a Database.
-3. Wikipedia: When you search for something it will give you Wikipedia for your search. NOTE: You must have internet connection.
--Thank You 
